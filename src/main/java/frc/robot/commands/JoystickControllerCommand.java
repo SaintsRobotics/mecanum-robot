@@ -4,7 +4,10 @@
 
 package frc.robot.commands;
 
+import java.security.spec.DSAGenParameterSpec;
+
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.MecanumSubsystem;
 
@@ -27,7 +30,11 @@ public class JoystickControllerCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-      m_subsystem.move(m_xboxController.getX(), m_xboxController.getY(), m_xboxController.get)
+      double y = -m_xboxController.getX(Hand.kLeft);
+      double x = -m_xboxController.getY(Hand.kLeft);
+      double rotation = m_xboxController.getX(Hand.kRight);
+
+      m_subsystem.move(x, y, rotation);
   }
 
   // Called once the command ends or is interrupted.
