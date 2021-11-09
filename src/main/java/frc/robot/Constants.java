@@ -14,11 +14,13 @@ package frc.robot;
  */
 public final class Constants {
     public class DriveConstants {
-        public static final int frontLeftMotorPort = 0;
-        public static final int rearLeftMotorPort = 1;
-        public static final int frontRightMotorPort = 2;
-        public static final int rearRightMotorPort = 3;
+        public static final int FRONT_LEFT_MOTOR_PORT = 0;
+        public static final int REAR_LEFT_MOTOR_PORT = 1;
+        public static final int FRONT_RIGHT_MOTOR_PORT = 2;
+        public static final int REAR_RIGHT_MOTOR_PORT = 3;
         // SCREAMING_SNAKE_CASE
         // khungarianNotation
-        }
+    }
+
+    
 }
