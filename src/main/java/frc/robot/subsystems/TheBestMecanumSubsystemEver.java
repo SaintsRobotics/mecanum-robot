@@ -28,10 +28,10 @@ public class TheBestMecanumSubsystemEver extends SubsystemBase {
     frontRightMotor = new WPI_VictorSPX(Constants.DriveConstants.FRONT_RIGHT_MOTOR_PORT);
     rearRightMotor = new WPI_VictorSPX(Constants.DriveConstants.REAR_RIGHT_MOTOR_PORT);
     mecanumDrive = new MecanumDrive(m_frontLeftMotor, m_rearLeftMotor, m_frontRightMotor, m_rearRightMotor);
-    TopRightMotor = one;
-    TopLeftMotor = two;
-    BottomRightMotor = three;
-    BottomLeftMotor = four;
+    TopRightMotor = frontRightMotor;
+    TopLeftMotor = frontLeftMotor;
+    BottomRightMotor = rearRightMotor;
+    BottomLeftMotor = rearLeftMotor;
     drive = new MecanumDrive(TopLeftMotor, BottomLeftMotor, TopRightMotor, BottomRightMotor);
   }
 
