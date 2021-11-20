@@ -30,9 +30,9 @@ public class JoystickControllerCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-      double y = m_xboxController.getX(Hand.kLeft);
+      double y = -m_xboxController.getX(Hand.kLeft);
       double x = m_xboxController.getY(Hand.kLeft);
-      double rotation = m_xboxController.getX(Hand.kRight);
+      double rotation = -m_xboxController.getX(Hand.kRight);
 
       m_subsystem.move(x, y, rotation);
   }
