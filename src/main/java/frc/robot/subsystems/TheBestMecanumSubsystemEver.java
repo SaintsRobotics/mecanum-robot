@@ -6,41 +6,34 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
-import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
+import edu.wpi.first.util.sendable.Sendable;
 
-public class TheBestMecanumSubsystemEver extends SubsystemBase {
-  /** Creates a new TheBestMecanumSubsystemEver. */
-  WPI_VictorSPX TopRightMotor;
-  WPI_VictorSPX TopLeftMotor;
-  WPI_VictorSPX BottomRightMotor;
-  WPI_VictorSPX BottomLeftMotor;
+public class MecanumSubsystem extends SubsystemBase {
+  private MecanumDrive m_mecanumDrive;
+  private WPI_VictorSPX m_frontLeftMotor;
+  private WPI_VictorSPX m_rearLeftMotor;
+  private WPI_VictorSPX m_frontRightMotor;
+  private WPI_VictorSPX m_rearRightMotor;
 
-  MecanumDrive drive;
-
-  // The constructer inherits motors and assigns them to the motor variables that
-  // were created above.
-  public TheBestMecanumSubsystemEver() {
-    frontLeftMotor = new WPI_VictorSPX(Constants.DriveConstants.FRONT_LEFT_MOTOR_PORT);
-    rearLeftMotor = new WPI_VictorSPX(Constants.DriveConstants.REAR_LEFT_MOTOR_PORT);
-    frontRightMotor = new WPI_VictorSPX(Constants.DriveConstants.FRONT_RIGHT_MOTOR_PORT);
-    rearRightMotor = new WPI_VictorSPX(Constants.DriveConstants.REAR_RIGHT_MOTOR_PORT);
-    mecanumDrive = new MecanumDrive(m_frontLeftMotor, m_rearLeftMotor, m_frontRightMotor, m_rearRightMotor);
-    TopRightMotor = frontRightMotor;
-    TopLeftMotor = frontLeftMotor;
-    BottomRightMotor = rearRightMotor;
-    BottomLeftMotor = rearLeftMotor;
-    drive = new MecanumDrive(TopLeftMotor, BottomLeftMotor, TopRightMotor, BottomRightMotor);
+  /** Creates a new MecanumSubsystem. */
+  public MecanumSubsystem() {
+    m_frontLeftMotor = new WPI_VictorSPX(Constants.DriveConstants.FRONT_LEFT_MOTOR_PORT);
+    m_rearLeftMotor = new WPI_VictorSPX(Constants.DriveConstants.REAR_LEFT_MOTOR_PORT);
+    m_frontRightMotor = new WPI_VictorSPX(Constants.DriveConstants.FRONT_RIGHT_MOTOR_PORT);
+    m_rearRightMotor = new WPI_VictorSPX(Constants.DriveConstants.REAR_RIGHT_MOTOR_PORT);
+    m_mecanumDrive = new MecanumDrive(m_frontLeftMotor, m_rearLeftMotor, m_frontRightMotor, m_rearRightMotor);
   }
 
   public void setSpeed(double x_speed, double y_speed, double z_rotation) {
-
+    m_mecanumDrive.driveCartesian(y_Speed, x_Speed, z_Rotation);
   }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+
   }
 }

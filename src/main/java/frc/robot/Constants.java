@@ -14,9 +14,6 @@ package frc.robot;
  * It is advised to statically import this class (or one of its inner classes)
  * wherever the constants are needed, to reduce verbosity.
  */
-<<<<<<< Updated upstream
-public final class Constants {}
-=======
 public final class Constants {
         public class DriveConstants {
                 public static final int FRONT_LEFT_MOTOR_PORT = 0;
@@ -28,4 +25,3 @@ public final class Constants {
         }
 
 }
->>>>>>> Stashed changes
